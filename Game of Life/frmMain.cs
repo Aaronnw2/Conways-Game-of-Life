@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Game_of_Life
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
         }
@@ -31,13 +31,11 @@ namespace Game_of_Life
                     buttonArray[i, j] = new Button();
                     buttonArray[i, j].Size = new Size(width, height);
                     buttonArray[i, j].Location = new Point(currentButtonLocationHorizontal, currentButtonLocationVerticle);
-                    buttonArray[i, j].Click += button_Click;
+                    buttonArray[i, j].BackColor = Color.Black;
+                    buttonArray[i, j].Click += new EventHandler(button_Click);
                     this.Controls.Add(buttonArray[i, j]);
                 }
             }
-            Timer gameTimer = new Timer();
-            gameTimer.Interval = 1000;
-            gameTimer.Start();
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -105,7 +103,7 @@ namespace Game_of_Life
                         case 7:
                         case 8:
                             //cell dies
-                            buttonArray[i, j].BackColor = Color.Gray;
+                            buttonArray[i, j].BackColor = Color.Black;
                             break;
                         case 2:
                             //if living, stay living, if dead, stay dead
@@ -119,9 +117,27 @@ namespace Game_of_Life
             }
         }
 
-        public void button_Click(object sender, buttonEventArgs e)
+        public void button_Click(object sender, EventArgs e)
         {
+            Button clickedButton = sender as Button;
+            if (clickedButton.BackColor == Color.Black)
+                clickedButton.BackColor = Color.Green;
+            else
+                clickedButton.BackColor = Color.Black;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (btnStartStop.Text == "Start")
+            {
+                gameTimer.Start();
+                btnStartStop.Text = "Stop";
+            }
+            else
+            {
+                gameTimer.Stop();
+                btnStartStop.Text = "Start";
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Game_of_Life
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,20 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnStartStop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gameTimer
             // 
+            this.gameTimer.Interval = 1000;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
-            // Form1
+            // btnStartStop
+            // 
+            this.btnStartStop.Location = new System.Drawing.Point(536, 608);
+            this.btnStartStop.Name = "btnStartStop";
+            this.btnStartStop.Size = new System.Drawing.Size(54, 32);
+            this.btnStartStop.TabIndex = 0;
+            this.btnStartStop.Text = "Start";
+            this.btnStartStop.UseVisualStyleBackColor = true;
+            this.btnStartStop.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 601);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(602, 652);
+            this.Controls.Add(this.btnStartStop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.Text = "Life";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -53,6 +67,7 @@
         #endregion
 
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Button btnStartStop;
     }
 }
 

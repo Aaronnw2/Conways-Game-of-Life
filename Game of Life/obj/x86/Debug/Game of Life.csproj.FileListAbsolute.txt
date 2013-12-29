@@ -7,3 +7,12 @@ C:\Users\Aaron\Desktop\Game of Life\Game of Life\obj\x86\Debug\GenerateResource.
 C:\Users\Aaron\Desktop\Game of Life\Game of Life\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Aaron\Desktop\Game of Life\Game of Life\obj\x86\Debug\Game of Life.exe
 C:\Users\Aaron\Desktop\Game of Life\Game of Life\obj\x86\Debug\Game of Life.pdb
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\obj\x86\Debug\Game of Life.exe
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\obj\x86\Debug\Game of Life.pdb
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\obj\x86\Debug\Game_of_Life.frmMain.resources
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\obj\x86\Debug\Game_of_Life.Properties.Resources.resources
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\bin\Debug\Game of Life.exe
+C:\Users\Aaron\Desktop\Programs\Game of Life\Game of Life\bin\Debug\Game of Life.pdb

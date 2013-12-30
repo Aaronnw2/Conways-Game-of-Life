@@ -17,8 +17,6 @@ namespace Game_of_Life
         }
 
         Button[,] buttonArray = new Button[30, 30];
-        bool[,] currentBoolArray = new bool[30, 30];
-        bool[,] nextBoolArray = new bool[30, 30];
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -43,6 +41,19 @@ namespace Game_of_Life
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             //This doesn't work properly. changing the buttons one at a time doesn't work, as evaluating one at a time will change the 
+            bool[,] currentBoolArray = new bool[30, 30];
+            bool[,] nextBoolArray = new bool[30, 30];
+            for (int i = 0; i < 30; i++)
+            {
+                for (int j = 0; j < 30; j++)
+                {
+                    if (buttonArray[i, j].BackColor == Color.Green)
+                        currentBoolArray[i, j] = true;
+                    else
+                        currentBoolArray[i, j] = false;
+                }
+            }
+
             for (int i = 0; i < 30; i++)
             {
                 for (int j = 0; j < 30; j++)
@@ -51,49 +62,49 @@ namespace Game_of_Life
                     if (i > 0)
                     {
                         //check left
-                        if (buttonArray[i - 1, j].BackColor == Color.Green)
+                        if (currentBoolArray[i - 1, j] == true)
                             numberOfLivingNeighbors++;
                     }
                     if (i < 29)
                     {
                         //check right
-                        if (buttonArray[i + 1, j].BackColor == Color.Green)
+                        if (currentBoolArray[i + 1, j] == true)
                             numberOfLivingNeighbors++;
                     }
                     if (j > 0)
                     {
                         //check up
-                        if (buttonArray[i, j - 1].BackColor == Color.Green)
+                        if (currentBoolArray[i, j - 1] == true)
                             numberOfLivingNeighbors++;
                     }
                     if (j < 29)
                     {
                         //check down
-                        if (buttonArray[i, j + 1].BackColor == Color.Green)
+                        if (currentBoolArray[i, j + 1] == true)
                             numberOfLivingNeighbors++;
                     }
                     if(i > 0 && j > 0)
                     {
                         //check upper left diagonal
-                        if (buttonArray[i - 1, j - 1].BackColor == Color.Green)
+                        if (currentBoolArray[i - 1, j - 1] == true)
                             numberOfLivingNeighbors++;
                     }
                     if (i < 29 && j < 29)
                     {
                         //check lower right diagonal
-                        if (buttonArray[i + 1, j + 1].BackColor == Color.Green)
+                        if (currentBoolArray[i + 1, j + 1] == true)
                             numberOfLivingNeighbors++;
                     }
                     if (i > 0 && j < 29)
                     {
                         //check lower left
-                        if (buttonArray[i - 1, j + 1].BackColor == Color.Green)
+                        if (currentBoolArray[i - 1, j + 1] == true)
                             numberOfLivingNeighbors++;
                     }
                     if (i < 29 && j > 0)
                     {
                         //check upper right
-                        if (buttonArray[i + 1, j - 1].BackColor == Color.Green)
+                        if (currentBoolArray[i + 1, j - 1] == true)
                             numberOfLivingNeighbors++;
                     }
                     switch (numberOfLivingNeighbors)
@@ -106,16 +117,30 @@ namespace Game_of_Life
                         case 7:
                         case 8:
                             //cell dies
-                            buttonArray[i, j].BackColor = Color.Black;
+                            nextBoolArray[i, j] = false;
                             break;
                         case 2:
                             //if living, stay living, if dead, stay dead
+                            if (currentBoolArray[i, j] == true)
+                                nextBoolArray[i, j] = true;
+                            else
+                                nextBoolArray[i, j] = false;
                             break;
                         case 3:
                             //turn green no matter what
-                            buttonArray[i, j].BackColor = Color.Green;
+                            nextBoolArray[i, j] = true;
                             break;
                     }
+                }
+            }
+            for (int i = 0; i < 30; i++)
+            {
+                for (int j = 0; j < 30; j++)
+                {
+                    if (nextBoolArray[i, j] == true)
+                        buttonArray[i, j].BackColor = Color.Green;
+                    else
+                        buttonArray[i, j].BackColor = Color.Black;
                 }
             }
         }

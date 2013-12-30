@@ -43,10 +43,9 @@ namespace Game_of_Life
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //This doesn't work properly. changing the buttons one at a time doesn't work, as evaluating one at a time will change the current state
             bool[,] currentBoolArray = new bool[30, 30];
             bool[,] nextBoolArray = new bool[30, 30];
-            //record the current state
+            //record the current board state
             for (int i = 0; i < 30; i++)
             {
                 for (int j = 0; j < 30; j++)

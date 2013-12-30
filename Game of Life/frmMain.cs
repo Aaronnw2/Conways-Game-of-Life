@@ -40,7 +40,8 @@ namespace Game_of_Life
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-                        for (int i = 0; i < 30; i++)
+            //This doesn't work properly. changing the buttons one at a time doesn't work, as evaluating one at a time will change the 
+            for (int i = 0; i < 30; i++)
             {
                 for (int j = 0; j < 30; j++)
                 {

@@ -17,6 +17,8 @@ namespace Game_of_Life
         }
 
         Button[,] buttonArray = new Button[30, 30];
+        bool[,] currentBoolArray = new bool[30, 30];
+        bool[,] nextBoolArray = new bool[30, 30];
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -122,7 +124,10 @@ namespace Game_of_Life
         {
             Button clickedButton = sender as Button;
             if (clickedButton.BackColor == Color.Black)
+            {
                 clickedButton.BackColor = Color.Green;
+                
+            }
             else
                 clickedButton.BackColor = Color.Black;
         }
